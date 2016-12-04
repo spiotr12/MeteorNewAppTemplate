@@ -1,0 +1,10 @@
+{
+  "public": {
+  },
+  "private": {
+    "settings_configuration": "dev.json",
+    "env": {
+      "NODE_ENV": "development"
+    }
+  }
+}
