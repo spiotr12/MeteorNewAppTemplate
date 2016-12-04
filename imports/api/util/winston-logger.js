@@ -13,7 +13,7 @@ if (Meteor.isServer) {
 	let colors = Npm.require('colors');
 
 	const debugLogDir = '../../../../logs-debug';
-	const logDir = 'logs';	// use this logDir to have new log every time server is build (development)
+	const logDir = 'logs';	// use this logDir to have new log every time server is build (development) (?)
 
 	// Create the app log directory if it does not exist
 	if (!fs.existsSync(logDir)) {
@@ -34,18 +34,19 @@ if (Meteor.isServer) {
 			error: 0,
 			debug: 1,
 			warn: 2,
-			info: 3,
-			dev: 4
+			success: 3,
+			info: 4,
+			dev: 5
 		},
 		colors: {
 			error: 'red',
 			debug: 'blue',
 			warn: 'yellow',
-			info: 'green',
+			success: 'green',
+			info: 'grey',
 			dev: 'cyan'
 		}
 	};
-
 	// (winston.config.syslog.levels):	emerg=0, alert=1, crit=2, error=3, warning=4, notice=5, info=6, debug=7
 
 	// Setup custom logger
@@ -124,6 +125,7 @@ if (Meteor.isServer) {
 	logger.testLogger = function () {
 		logger.dev('dev message');
 		logger.info('info message');
+		logger.success('success message');
 		logger.warn('warn message');
 		logger.debug('debug message');
 		logger.error('error message');
