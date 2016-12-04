@@ -1,3 +1,7 @@
+/*
+	This is custom logger based on npm winston package
+	Customisation done by spiotr12
+ */
 "use strict";
 import { Meteor } from 'meteor/meteor';
 
